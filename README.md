@@ -12,4 +12,6 @@ build
 
 `npm run build -- --base slidev-example/dist/`
 
+[github Pages](https://ko-shia.github.io/slidev-example/dist/)
+
 Learn more about Slidev on [documentations](https://sli.dev/).
