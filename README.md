@@ -8,4 +8,8 @@ To start the slide show:
 
 Edit the [slides.md](./slides.md) to see the changes.
 
+build
+
+`npm run build -- --base slidev-example/dist/`
+
 Learn more about Slidev on [documentations](https://sli.dev/).

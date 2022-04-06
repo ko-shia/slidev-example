@@ -29,44 +29,15 @@ Presentation slides for developers
 
 ---
 
-# Slidevをインストール
+# Slidevとは
+- <twemoji-memo/> Text-based - マークダウンを使用し、スタイルを設定出来ます
+- <twemoji-artist-palette/> Themable - npm packageを使用しテーマをシェア出来ます
+- <twemoji-technologist/> Developer Friendly - コードハイライト, オートコンプリートを使用したライブコーディング
+- <twemoji-person-juggling/> Interactive - Vueコンポーネントの埋め込みで表現を強化します
+- <twemoji-movie-camera/> Recording - ビルトインの録画とカメラビューがあります
+- <twemoji-outbox-tray/> Portable - PDFへのエクスポート, PNG, ホスティング可能なSPA
+- <twemoji-hammer-and-wrench/> Hackable - Webページで可能なことは何でも
 
-slidevをインストールしよう<br>
-Node.js >=14.0で動作します
-
-```ts
-npm init slidev@latest
-```
-もしくは
-```ts
-yarn create slidev
-```
-
-プロジェクトの名前や使用するパッケージマネージャーを聞かれるので好みで選択
-
-```ts
-✔ Project name: … slidev-test
-  Scaffolding project in slidev-test ...
-  Done.
-
-✔ Install and start it now? … yes
-✔ Choose the agent › npm
-```
-これでSlidevを利用可能です。ブラウザでhttp://localhost:3030/で確認できます。
-
----
-
-# Slidevをインストール
-
-二回目以降は生成されたディレクトリに移動して以下コマンドで起動
-```ts
-npm run dev -- ${Markdownファイルのパス}
-```
-
-実行例
-```ts
-npm run dev -- slides.md
-```
 ---
 
 # ナビゲーション
@@ -221,7 +192,7 @@ $$
 
 <br>
 
-[Learn more](https://sli.dev/guide/syntax#latex)
+[詳しくはこちら](https://ja.sli.dev/guide/syntax.html#latex)
 
 ---
 
@@ -281,9 +252,58 @@ database "MySql" {
 
 </div>
 
-[Learn More](https://sli.dev/guide/syntax.html#diagrams)
+[詳しくはこちら](https://ja.sli.dev/guide/syntax.html#%E5%9B%B3%E5%BD%A2)
 
+---
 
+# Slidevをインストール
+
+slidevをインストールしよう<br>
+Node.js >=14.0で動作します
+
+```ts
+npm init slidev@latest
+```
+もしくは
+```ts
+yarn create slidev
+```
+
+プロジェクトの名前や使用するパッケージマネージャーを聞かれるので好みで選択
+
+```ts
+✔ Project name: … slidev-test
+  Scaffolding project in slidev-test ...
+  Done.
+
+✔ Install and start it now? … yes
+✔ Choose the agent › npm
+```
+これでSlidevを利用可能です。ブラウザでhttp://localhost:3030/で確認できます。
+
+---
+
+# Slidevをインストール
+slidevをインストールしよう<br>
+
+二回目以降は生成されたディレクトリに移動して以下コマンドで起動
+```ts
+npm run dev
+```
+---
+
+# Slidevをビルド
+公開用のSPAを生成する場合は以下コマンド
+
+```ts
+npm run build -- slides.md
+```
+
+github Pagesで公開するには.github/workflows/deploy.ymlを作成する必要があります。<br>
+公式ドキュメントにあるソースをコピペして作成してください。<br>
+また、Netlifyでの公開方法も記載されています。
+
+[公式ドキュメントはこちら](https://ja.sli.dev/guide/hosting.html)
 ---
 layout: center
 class: text-center
@@ -291,4 +311,4 @@ class: text-center
 
 # Learn More
 
-[Documentations](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/showcases.html)
+[Documentations](https://ja.sli.dev/) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://ja.sli.dev/showcases.html)
