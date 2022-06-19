@@ -1,15 +1,13 @@
 ---
 theme: default
-title: Slidevを始めよう
+title: IEがサポート外になったときに使用できるCSS
 download: false
 lineNumbers: true
 background: https://source.unsplash.com/collection/94734566/1920x1080
 class: 'text-center'
 ---
 
-# Welcome to Slidev
-
-Presentation slides for developers
+# IEがサポート外になったときに <br>使用できるCSS
 
 <div class="pt-12">
   <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
@@ -29,113 +27,193 @@ Presentation slides for developers
 
 ---
 
-# Slidevとは
-- <twemoji-memo/> Text-based - マークダウンを使用し、スタイルを設定出来ます
-- <twemoji-artist-palette/> Themable - npm packageを使用しテーマをシェア出来ます
-- <twemoji-technologist/> Developer Friendly - コードハイライト, オートコンプリートを使用したライブコーディング
-- <twemoji-person-juggling/> Interactive - Vueコンポーネントの埋め込みで表現を強化します
-- <twemoji-movie-camera/> Recording - ビルトインの録画とカメラビューがあります
-- <twemoji-outbox-tray/> Portable - PDFへのエクスポート, PNG, ホスティング可能なSPA
-- <twemoji-hammer-and-wrench/> Hackable - Webページで可能なことは何でも
+# filter
+CSSのみで被写体に影をつける [もっと詳しく](https://developer.mozilla.org/ja/docs/Web/CSS/filter)
 
+<div class="grid grid-cols-2 gap-4">
+<div>
+  <img class="img-1" src="assets\img\gassyou_usagi.png">
+
+  ```css
+  img {
+      filter: drop-shadow(10px 10px 0 #999999);
+    }
+  ```
+</div>
+<div>
+  <img class="img-2" src="assets\img\gassyou_usagi.png">
+
+  ```css
+  img {
+      filter: blur(3px);
+  }
+  ```
+</div>
+
+</div>
+
+<style>
+  img {
+    width: 200px;
+    height: auto;
+    margin: 20px auto 0;
+  }
+  .img-1 {
+    filter: drop-shadow(10px 10px 0 #999999);
+  }
+  .img-2 {
+    filter: blur(3px);
+  }
+</style>
 ---
 
-# ナビゲーション
+# object-fit: cover
 
-左下にカーソルを合わせると、ナビゲーションのコントロールパネルが表示されます。 [もっと詳しく](https://ja.sli.dev/guide/navigation.html)
+左下にカーソルを合わせると、ナビゲーションのコントロールパネルが表示されます。 [もっと詳しく](https://coliss.com/articles/build-websites/operation/css/background-videos-used-object-fit.html)
 
-### Keyboard Shortcuts
+<div class="grid grid-cols-2 gap-4">
+<div>
+  <img class="img-1" src="assets\img\background.jpg">
 
-|     |     |
-| --- | --- |
-| <kbd>right</kbd> / <kbd>space</kbd>| 次のアニメーションまたはスライド |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | 前のアニメーションまたはスライド |
-| <kbd>up</kbd> | 前のスライド |
-| <kbd>down</kbd> | 次のスライド |
+  ```css
+  img {
+      filter: drop-shadow(10px 10px 0 #999999);
+    }
+  ```
+</div>
+<div>
+  <img class="img-2" src="assets\img\gassyou_usagi.png">
 
-<!-- https://sli.dev/guide/animations.html#click-animations -->
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
+  ```css
+  img {
+      filter: blur(3px);
+  }
+  ```
+</div>
 
+</div>
+
+<style>
+  img {
+    width: 200px;
+    height: auto;
+    margin: 20px auto 0;
+  }
+  .img-1 {
+    display: block;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+  .img-2 {
+    filter: blur(3px);
+  }
+</style>
 ---
-layout: image-right
-image: https://source.unsplash.com/collection/94734566/1920x1080
----
 
-# Code
+# grid
 
 コードスニペットを使って、文字をハイライトさせることができます
 
-```ts {all|2|1-6|9|all}
-interface User {
-  id: number
-  firstName: string
-  lastName: string
-  role: string
-}
-
-function updateUser(id: number, update: User) {
-  const user = getUser(id)
-  const newUser = { ...user, ...update }
-  saveUser(id, newUser)
-}
-```
-
-<arrow v-click="3" x1="400" y1="420" x2="230" y2="330" color="#564" width="3" arrowSize="1" />
-
-[^1]: [Learn More](https://ja.sli.dev/guide/syntax.html#%E3%82%B3%E3%83%BC%E3%83%89%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF)
+<div class="grid-box">
+  <div class="item item01">item01</div>
+  <div class="item item02">item02</div>
+  <div class="item item03">item03</div>
+  <div class="item item04">item04</div>
+  <div class="item item05">item05</div>
+  <div class="item item06">item06</div>
+</div>
 
 <style>
-.footnotes-sep {
-  @apply mt-20 opacity-10;
+.grid-box {
+  display:grid;
+  gap: 10px;
+  margin-top: 10px;
 }
-.footnotes {
-  @apply text-sm opacity-75;
+.grid-box .item {
+  padding: 15px;
+  font-weight: bold;
 }
-.footnote-backref {
-  display: none;
+.grid-box .item01 {
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+  background: #f6ffc5;
+}
+.grid-box .item02 {
+  grid-row: 1 / 5;
+  grid-column: 2 / 3;
+  background: #bef5ff;
+}
+.grid-box .item03 {
+  grid-row: 2 / 3;
+  grid-column: 1 / 2;
+  background: #c5ffc8;
+}
+.grid-box .item04 {
+  grid-row: 3 / 4;
+  grid-column: 1 / 2;
+  background: #ffc5c5;
+}
+.grid-box .item05 {
+  grid-row: 4 / 5;
+  grid-column: 1 / 2;
+  background: #f5c5ff;
+}
+.grid-box .item06 {
+  grid-row: 5 / 6;
+  grid-column: 1 / 3;
+  background: #bcbbff;
 }
 </style>
 
 ---
 
-# Components
+# position: sticky
+セクション毎に追従させることができる。<br>
+position: fixed; と異なり、ウィンドウを基準に追従するのではなく、ブロックを基準にして追従します。
 
-<div grid="~ cols-2 gap-4">
-<div>
 
-スライド内で直接Vueコンポーネントを使用することができます。
-
-私たちは `<Tweet/>` や `<Youtube/>` のようないくつかの組み込みコンポーネントを提供していますので、直接使用することができます。また、カスタムコンポーネントを追加することも非常に簡単です。
-
-```html
-<Counter :count="10" />
-```
-
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
-
-[詳しくはこちら](https://ja.sli.dev/builtin/components.html)
-
+<div class="sticky-wrap">
+  <div class="A-block sticky-block">
+    <div class="sticky">A</div>
+    <p class="ttl02">Aブロック</p>
+    <p class="txt">ダミーテキストダミーテキストダミーテキスト<br> ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト<br> ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</p>
+    <p class="txt">ダミーテキストダミーテキストダミーテキスト<br> ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト<br> ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</p>
+    <p class="txt">ダミーテキストダミーテキストダミーテキスト<br> ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト<br> ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</p>
+  </div>
+  <div class="B-block sticky-block">
+    <div class="sticky">B</div>
+    <p class="ttl02">Bブロック</p>
+    <p class="txt">ダミーテキストダミーテキストダミーテキスト<br> ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト<br> ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</p>
+    <p class="txt">ダミーテキストダミーテキストダミーテキスト<br> ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト<br> ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</p>
+    <p class="txt">ダミーテキストダミーテキストダミーテキスト<br> ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト<br> ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</p>
+  </div>
+  <div class="C-block sticky-block">
+    <div class="sticky">C</div>
+    <p class="ttl02">Cブロック</p>
+    <p class="txt">ダミーテキストダミーテキストダミーテキスト<br> ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト<br> ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</p>
+    <p class="txt">ダミーテキストダミーテキストダミーテキスト<br> ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト<br> ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</p>
+    <p class="txt">ダミーテキストダミーテキストダミーテキスト<br> ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト<br> ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</p>
+  </div>
 </div>
-<div>
 
-```html
-<Tweet id="1390115482657726468" />
-```
+<style>
+  .sticky-wrap {
+    height: 350px;
+    overflow: scroll;
+  }
+  .sticky-block .sticky {
+    background: #dfdfdf;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    position: -webkit-sticky;
+    position: sticky;
+    left: 0;
+    top: -1px;
+  }
+</style>
 
-<Tweet id="1390115482657726468" scale="0.65" />
-
-</div>
-</div>
-
-
----
-class: px-20
 ---
 
 # アイコン
@@ -254,56 +332,6 @@ database "MySql" {
 
 [詳しくはこちら](https://ja.sli.dev/guide/syntax.html#%E5%9B%B3%E5%BD%A2)
 
----
-
-# Slidevをインストール
-
-slidevをインストールしよう<br>
-Node.js >=14.0で動作します
-
-```ts
-npm init slidev@latest
-```
-もしくは
-```ts
-yarn create slidev
-```
-
-プロジェクトの名前や使用するパッケージマネージャーを聞かれるので好みで選択
-
-```ts
-✔ Project name: … slidev-test
-  Scaffolding project in slidev-test ...
-  Done.
-
-✔ Install and start it now? … yes
-✔ Choose the agent › npm
-```
-これでSlidevを利用可能です。ブラウザでhttp://localhost:3030/で確認できます。
-
----
-
-# Slidevをインストール
-slidevをインストールしよう<br>
-
-二回目以降は生成されたディレクトリに移動して以下コマンドで起動
-```ts
-npm run dev
-```
----
-
-# Slidevをビルド
-公開用のSPAを生成する場合は以下コマンド
-
-```ts
-npm run build -- slides.md
-```
-
-github Pagesで公開するには.github/workflows/deploy.ymlを作成する必要があります。<br>
-公式ドキュメントにあるソースをコピペして作成してください。<br>
-また、Netlifyでの公開方法も記載されています。
-
-[公式ドキュメントはこちら](https://ja.sli.dev/guide/hosting.html)
 ---
 layout: center
 class: text-center
