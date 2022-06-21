@@ -69,44 +69,31 @@ CSSのみで被写体に影をつける [もっと詳しく](https://developer.m
 
 # object-fit: cover
 
-左下にカーソルを合わせると、ナビゲーションのコントロールパネルが表示されます。 [もっと詳しく](https://coliss.com/articles/build-websites/operation/css/background-videos-used-object-fit.html)
+スマホでもデスクトップのあらゆるサイズのスクリーンでも最適なサイズで表示されます。[デモ](https://codepen.io/DylanMacnab/pen/NjVXEe)
 
 <div class="grid grid-cols-2 gap-4">
 <div>
-  <img class="img-1" src="assets\img\background.jpg">
+  <img class="img-1" src="assets\img\test1.png">
 
-  ```css
-  img {
-      filter: drop-shadow(10px 10px 0 #999999);
-    }
-  ```
 </div>
 <div>
-  <img class="img-2" src="assets\img\gassyou_usagi.png">
+  <img class="img-2" src="assets\img\test2.png">
 
-  ```css
+```css
   img {
-      filter: blur(3px);
+    object-fit: cover;
   }
-  ```
+```
+
 </div>
 
 </div>
 
 <style>
   img {
-    width: 200px;
+    width: auto;
     height: auto;
     margin: 20px auto 0;
-  }
-  .img-1 {
-    display: block;
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-  }
-  .img-2 {
-    filter: blur(3px);
   }
 </style>
 ---
@@ -207,7 +194,6 @@ position: fixed; と異なり、ウィンドウを基準に追従するのでは
     font-weight: 700;
     margin-bottom: 20px;
     padding: 10px 15px;
-    position: -webkit-sticky;
     position: sticky;
     left: 0;
     top: -1px;
@@ -216,127 +202,39 @@ position: fixed; と異なり、ウィンドウを基準に追従するのでは
 
 ---
 
-# アイコン
+# min()、max()、clamp()
 
-[Icons | Slidev](https://ja.sli.dev/guide/syntax.html#%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3) に利用可能なアイコンの情報があります。<br>
-[Tailwind CSS](https://tailwindcss.com/docs/animation) のクラスを設定するとアニメーションを付与できます
+<div></div>
 
+<div class="title">min()</div>
 
-<div class="grid grid-cols-[50%,50%] gap-4"><div>
+値をカンマ区切りで指定しておくと、その中から最も小さい値を適用してくれます。[デモ](https://codepen.io/una/pen/rNeGNVL)
 
-<center>
+<div class="title">max()</div>
 
-<logos-chrome class="text-5xl m-12 animate-bounce"/>
-<logos-firefox class="text-5xl m-12 animate-bounce"/>
-<logos-microsoft-edge class="text-5xl m-12 animate-bounce"/>
+値をカンマ区切りで指定しておくと、その中から最も大きい値を適用してくれます。 [デモ](https://codepen.io/una/pen/RwaZXqR)
 
-</center>
+<div class="title">clamp()</div>
 
-</div><div class="content-center">
+最小値、推奨値、最大値を指定でき、min()とmax()を組み合わせたような動きをしてくれます。[デモ](https://codepen.io/una/pen/bGpoGdJ)
 
-<center>
-
-<twemoji-grinning-face class="text-5xl m-12 animate-pulse"/>
-<twemoji-party-popper class="text-5xl m-12 animate-ping"/>
-<twemoji-cat-with-tears-of-joy class="text-5xl m-12 animate-spin"/>
-
-</center>
-
-</div></div>
-
----
-
-# LaTeX
-
-LaTeXは[KaTeX](https://katex.org/)によりアウトオブボックスでサポートされています。
-
-<br>
-
-Inline $\sqrt{3x-1}+(1+x)^2$
-
-Block
-$$
-\begin{array}{c}
-
-\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &
-= \frac{4\pi}{c}\vec{\mathbf{j}}    \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
-
-\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\
-
-\nabla \cdot \vec{\mathbf{B}} & = 0
-
-\end{array}
-$$
-
-<br>
-
-[詳しくはこちら](https://ja.sli.dev/guide/syntax.html#latex)
-
----
-
-# Diagrams
-
-Markdownで直接、テキスト記述から図/グラフを作成することができます。
-
-<div class="grid grid-cols-3 gap-10 pt-4 -mb-6">
-
-```mermaid {scale: 0.5}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
-```
-
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
-
-```plantuml {scale: 0.7}
-@startuml
-
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
-}
-
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
-}
-
-cloud {
-  [Example 1]
-}
-
-
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
+<style>
+  p {
+    margin: 10px 0 30px;
   }
-  frame "Foo" {
-    [Frame 4]
+  .title {
+    font-size: 1.5rem;
+    font-weight: bold;
   }
-}
-
-
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
-
-@enduml
-```
-
-</div>
-
-[詳しくはこちら](https://ja.sli.dev/guide/syntax.html#%E5%9B%B3%E5%BD%A2)
+</style>
 
 ---
 layout: center
 class: text-center
 ---
 
-# Learn More
+# 参考
 
-[Documentations](https://ja.sli.dev/) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://ja.sli.dev/showcases.html)
+[IEよ、さようなら😂 IEをサポート外にした時に使用できるCSSのプロパティや機能のまとめ](https://coliss.com/articles/build-websites/operation/css/css-properties-ie-is-not-supported.html)<br>
+<br>
+[IE非対応の便利なCSSプロパティ集](https://b-risk.jp/blog/2022/02/ie-unmatched-css/)
