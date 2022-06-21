@@ -32,7 +32,7 @@ CSSのみで被写体に影をつける [もっと詳しく](https://developer.m
 
 <div class="grid grid-cols-2 gap-4">
 <div>
-  <img class="img-1" src="assets\img\gassyou_usagi.png">
+  <img class="img-1" src="/public/img/gassyou_usagi.png">
 
   ```css
   img {
@@ -41,7 +41,7 @@ CSSのみで被写体に影をつける [もっと詳しく](https://developer.m
   ```
 </div>
 <div>
-  <img class="img-2" src="assets\img\gassyou_usagi.png">
+  <img class="img-2" src="/public/img/gassyou_usagi.png">
 
   ```css
   img {
@@ -73,11 +73,11 @@ CSSのみで被写体に影をつける [もっと詳しく](https://developer.m
 
 <div class="grid grid-cols-2 gap-4">
 <div>
-  <img class="img-1" src="assets\img\test1.png">
+  <img class="img-1" src="/public/img/test1.png">
 
 </div>
 <div>
-  <img class="img-2" src="assets\img\test2.png">
+  <img class="img-2" src="/public/img/test2.png">
 
 ```css
   img {
